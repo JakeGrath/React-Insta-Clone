@@ -9,7 +9,8 @@ class CommentContainer extends React.Component {
         super(props);
         this.state = {
             comments: props.comments,
-            comment: ''
+            comment: '',
+            likes: props.likes
         };
     }
 
@@ -40,9 +41,18 @@ componentWillReceiveProps(newProps) {
 
     }
 
+    handleLike = e => {
+        const likes = this.state.likes + 1
+        this.setState({
+            likes : likes
+        })
+    }
+
     render() {
         return (
             <div>
+            <div className='post-container-icons'><i className="far fa-heart" onClick={this.handleLike}></i> <i className="far fa-comment"></i></div>
+                <div className='post-container-icons'>{this.state.likes}</div>
                 {this.state.comments.map((c, i) => <Comment key={i} comment={c} />)}
                 <CommentInput
                     comment={this.state.comment}

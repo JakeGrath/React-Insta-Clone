@@ -2,13 +2,13 @@ import React from 'react';
 import './SearchBar.css'
 import iglogo from '../../assets/iglogo.png'
 
-const SearchBar = () => {
+const SearchBar = props => {
     return (
         <div className='searchbar-container'>
         <img className='logo-img' src={iglogo} alt='Instagram'/>
         <i className="fab fa-instagram"></i>
         <div>
-        <input className='search-bar' type="text" placeholder="Search" />
+        <input type="text" className='search-bar' placeholder="Search" onKeyDown={props.searchPosts} />
         </div>
         <div className='icons'>
             <i className="far fa-compass"></i>

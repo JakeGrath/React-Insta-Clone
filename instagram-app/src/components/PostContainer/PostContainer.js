@@ -13,6 +13,7 @@ const PostContainer = (props) => {
                 <img className='post-continer-image' src={prop.imageUrl} alt='image' width='604px' />
                 <div className='post-container-icons'><i className="far fa-heart"></i> <i className="far fa-comment"></i></div>
                 <CommentContainer comments={prop.comments} />
+                {prop.comments.forEach(log => {console.log(log)})}
             </div>
         )
     )

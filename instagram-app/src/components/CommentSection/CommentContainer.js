@@ -13,6 +13,14 @@ class CommentContainer extends React.Component {
         };
     }
 
+componentWillReceiveProps(newProps) {
+    if (this.props.comments !== newProps.comments){
+        this.setState ({
+            comments: newProps.comments
+        })
+    }
+}
+
     commentHandler = e => {
         this.setState({
             comment: e.target.value

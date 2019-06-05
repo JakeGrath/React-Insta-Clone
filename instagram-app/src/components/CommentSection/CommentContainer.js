@@ -17,7 +17,8 @@ class CommentContainer extends React.Component {
 componentWillReceiveProps(newProps) {
     if (this.props.comments !== newProps.comments){
         this.setState ({
-            comments: newProps.comments
+            comments: newProps.comments,
+            likes: newProps.likes
         })
     }
 }
@@ -38,6 +39,7 @@ componentWillReceiveProps(newProps) {
             comments: [...this.state.comments, newComment],
             comment: ''
         })
+        localStorage.setItem('comments', this.state.comments)
 
     }
 
@@ -46,6 +48,7 @@ componentWillReceiveProps(newProps) {
         this.setState({
             likes : likes
         })
+        localStorage.setItem('likes', this.state.likes)
     }
 
     render() {

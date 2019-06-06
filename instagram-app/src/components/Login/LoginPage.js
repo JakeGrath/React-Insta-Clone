@@ -1,7 +1,33 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
-import './LoginPage.css'
-import loginImg from '../../assets/adventure-attraction-blurry-618545.jpg'
+import loginImg from '../../assets/adventure-attraction-blurry-618545.jpg';
+import styled from 'styled-components';
+
+const StyledLoginPage = styled.div`
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 20%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 4px;
+`
+
+const StyledInputBox = styled.input`
+    margin: 20px;
+    background-color: rgb(244,244,244);
+    border-radius: 4px;
+    border: none;
+`
+
+const StyledLoginButton = styled.button`
+    width: 200px;
+    height: 75px;
+    background: rgb(244,244,244);
+    border: 1px solid rgb(55,55,55);
+    border-radius: 5px;
+    margin-bottom: 20px;
+`
 
 class Login extends React.Component {
     constructor(props) {
@@ -24,21 +50,19 @@ class Login extends React.Component {
 
   render() {
     return (
-        <div className='login-page'>
+        <StyledLoginPage>
         <SearchBar />
-      <form className="login">
+      <form>
         <img src={loginImg} alt='Login Image' width='604px' height='auto'/>
         <div>Please Log in to continue.</div>
-          <input
-          className='input-box'
+          <StyledInputBox
             type="text"
             placeholder="Username"
             name="username"
             value={this.state.username}
             onChange={this.handleInput}
           />
-          <input
-          className='input-box'
+          <StyledInputBox
             type="password"
             placeholder="Password"
             name="password"
@@ -46,11 +70,11 @@ class Login extends React.Component {
             onChange={this.handleInput}
           />
           <br />
-          <button onClick={this.handleLoginSubmit}>
+          <StyledLoginButton onClick={this.handleLoginSubmit}>
             Log In
-          </button>
+          </StyledLoginButton>
       </form>
-      </div>
+      </StyledLoginPage>
     );
   }
 }
